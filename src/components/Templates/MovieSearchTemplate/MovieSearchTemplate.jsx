@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Wrapper } from './TranscriptionsTemplate.styles'
+import { Wrapper } from './MovieSearchTemplate.styles'
 
-const TranscriptionsTemplate = ({ header, children }) => (
+const TranscriptionsTemplate = ({ header, searchBar, children }) => (
   <div>
     { header }
     <Wrapper>
+      { searchBar }
       { children }
     </Wrapper>
   </div>
@@ -14,6 +15,7 @@ const TranscriptionsTemplate = ({ header, children }) => (
 
 TranscriptionsTemplate.propTypes = {
   header: PropTypes.object.isRequired,
+  searchBar: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired
 }
 

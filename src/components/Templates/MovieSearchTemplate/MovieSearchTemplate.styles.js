@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  margin: 0 6%;
+  max-width: 85rem;
+  margin: 0 auto;
 `

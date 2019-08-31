@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider as ReduxProvider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import TranscriptionsPage from '../Pages/TranscriptionsPage'
+import MovieSearchPage from '../Pages/MovieSearchPage'
 
 import { GlobalStyles } from './app.styles'
 
@@ -14,7 +14,7 @@ const store = configureStore()
 
 const App = () => (
   <div>
-    <TranscriptionsPage />
+    <MovieSearchPage />
     <GlobalStyles />
   </div>
 )
