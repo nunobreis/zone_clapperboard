@@ -1,7 +1,9 @@
 import React from 'react'
 
-import TranscriptionsContainer from '../containers/Transcriptions.container'
+import AppBar from '../components/organisms/AppBar/AppBar'
 
-const TranscriptionsPage = () => <TranscriptionsContainer />
+const TranscriptionsPage = () => <div>
+  <AppBar />
+</div>
 
 export default TranscriptionsPage
