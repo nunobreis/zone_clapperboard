@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const whiteColor = ({ theme }) => theme.colors.light
 
-const darkColor = ({ theme }) => theme.colors.dark
+const primaryColor = ({ theme }) => theme.colors.primary4
 
 const primaryFont = ({ theme }) => theme.fonts.primary
 
@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 `
 
 export const Brand = styled.p`
-  color: ${darkColor};
+  color: ${primaryColor};
   font-size: 1.6rem;
   font-family: ${primaryFont};
   font-weight: 600;

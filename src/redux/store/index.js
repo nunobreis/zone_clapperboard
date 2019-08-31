@@ -7,12 +7,10 @@ import {
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import thunk from 'redux-thunk'
 
-import transcriptions from '../transcriptions/transcriptions.reducer'
-import checkedTranscriptions from '../checkedTranscriptions/checkedTranscriptions.reducer'
+import getMovies from '../movies/movies.reducer'
 
 const rootReducer = combineReducers({
-  transcriptions,
-  checkedTranscriptions
+  getMovies
 })
 
 export default function configureStore(initialState) {

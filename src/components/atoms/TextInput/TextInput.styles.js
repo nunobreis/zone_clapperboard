@@ -8,9 +8,9 @@ export const StyledInput = styled.input.attrs(props => ({
   type: 'text',
   placeholder: props.placeholder
 }))`
-  padding: 1rem;
   font-size: 2rem;
-  min-width: 100%;
+  padding: 1rem;
+  width: 83rem;
   color: ${darkColor};
   font-family: ${fontFamily};
   outline: none;

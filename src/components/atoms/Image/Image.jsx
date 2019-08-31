@@ -1,7 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const Image = props => <img {...props} alt={props.alt} />
+const StyledImage = styled.img`
+  margin: 1rem 0;
+`
+
+const Image = props => <StyledImage {...props} alt={props.alt} />
 
 Image.propTypes = {
   alt: PropTypes.string.isRequired,
