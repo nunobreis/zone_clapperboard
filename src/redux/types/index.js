@@ -1,0 +1,14 @@
+// transcriptions load:
+export const LOAD_TRANSCRIPTIONS_SUCCESS = 'LOAD_TRANSCRIPTIONS_SUCCESS'
+export const LOAD_TRANSCRIPTIONS_FAILED = 'LOAD_TRANSCRIPTIONS_FAILED'
+
+// card types:
+export const ADD_NEW_ROW = 'ADD_NEW_ROW'
+export const DELETE_ROW = 'DELETE_ROW'
+
+// transcriptions post:
+export const POST_TRANSCRIPTIONS_SUCCESS = 'POST_TRANSCRIPTIONS_SUCCESS'
+export const POST_TRANSCRIPTIONS_FAILED = 'POST_TRANSCRIPTIONS_FAILED'
+
+// checked tanscriptions:
+export const CHECKED_TRANSCRIPTION = 'CHECK_TRANSCRIPTION'
