@@ -13,7 +13,6 @@ const CardList = ({ items, ...props }) => (
     {items ? (
       items.map((item, i) => (
         <Card key={i}>
-          {console.log(item)}
           <Heading level={2}>{item.title}</Heading>
           <MovieDetails>
             <Image src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.title}/>

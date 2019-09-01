@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const fontFamily = ({ theme }) => theme.fonts.primary
+const fontFamily = ({ theme }) => theme.fonts.secondary
 
 const darkColor = ({ theme }) => theme.colors.dark
 

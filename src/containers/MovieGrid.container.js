@@ -2,10 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import * as moviesActions from '../redux/movies/movies.actions'
 import CardList from '../components/molecules/CardList/CardList'
 import Spinner from '../components/atoms/Spinner/Spinner'
 import FetchingDataFailed from '../components/molecules/FetchingDataFailed/FetchingDataFailed'
+import SearchBar from '../components/molecules/SearchBar/SearchBar'
+
+import * as moviesActions from '../redux/movies/movies.actions'
+import * as searchMovieActions from '../redux/searchMovies/searchMovies.actions'
 
 class MovieGrid extends React.Component {
   componentDidMount() {
@@ -13,10 +16,13 @@ class MovieGrid extends React.Component {
   }
 
   render() {
-    const { isPending, error } = this.props
+    const {
+      isPending,
+      error,
+      onSearchChange,
+      searchField
+    } = this.props
     const { results } = this.props.movies
-    // const filteredMovies = results.filter(movies => movies.original_title.toLowerCase().includes('a'))
-
     if (isPending) {
       return <Spinner />
     }
@@ -24,9 +30,15 @@ class MovieGrid extends React.Component {
       return <FetchingDataFailed error={error}/>
     }
     if (results) {
+      const filterByPopularity = results.sort((a, b) => b.popularity - a.popularity)
+      const filterByName = filterByPopularity.filter(movies => (
+        movies.title.toLowerCase().includes(searchField.toLowerCase())
+      ))
+
       return (
         <div>
-          <CardList items={results} />
+          <SearchBar searchChange={onSearchChange} />
+          <CardList items={filterByName} />
         </div>
       )
     }
@@ -35,17 +47,29 @@ class MovieGrid extends React.Component {
 }
 
 MovieGrid.propTypes = {
-  onRequestMovies: PropTypes.func
+  onRequestMovies: PropTypes.func,
+  movies: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ]),
+  isPending: PropTypes.bool,
+  error: PropTypes.string,
+  onSearchChange: PropTypes.func,
+  searchField: PropTypes.string
 }
 
-const mapStateToProps = ({ getMovies }) => ({
+const mapStateToProps = ({ getMovies, searchMovies }) => ({
+  searchField: searchMovies.searchField,
   movies: getMovies.movies,
   isPending: getMovies.isPending,
   error: getMovies.error
 })
 
 const mapDispatchToProps = dispatch => ({
-  onRequestMovies: () => moviesActions.loadMovies(dispatch)
+  onRequestMovies: () => moviesActions.loadMovies(dispatch),
+  onSearchChange: e => dispatch(
+    searchMovieActions.setSearchField(e.target.value)
+  )
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieGrid)

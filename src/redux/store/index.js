@@ -8,9 +8,11 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import thunk from 'redux-thunk'
 
 import getMovies from '../movies/movies.reducer'
+import searchMovies from '../searchMovies/searchMovies.reducer'
 
 const rootReducer = combineReducers({
-  getMovies
+  getMovies,
+  searchMovies
 })
 
 export default function configureStore(initialState) {

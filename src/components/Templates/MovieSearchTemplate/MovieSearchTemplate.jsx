@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 
 import { Wrapper } from './MovieSearchTemplate.styles'
 
-const TranscriptionsTemplate = ({ header, searchBar, children }) => (
+const TranscriptionsTemplate = ({ header, children }) => (
   <div>
     { header }
     <Wrapper>
-      { searchBar }
       { children }
     </Wrapper>
   </div>
@@ -15,7 +14,6 @@ const TranscriptionsTemplate = ({ header, searchBar, children }) => (
 
 TranscriptionsTemplate.propTypes = {
   header: PropTypes.object.isRequired,
-  searchBar: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired
 }
 
