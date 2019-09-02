@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Logo from '../../atoms/Logo/Logo'
 
-import { Wrapper, BrandWrapper ,Brand } from './AppBar.styles'
+import { Wrapper, BrandWrapper, Brand } from './AppBar.styles'
 
 const AppBar = ({ children, ...props }) => <Wrapper {...props}>
   <BrandWrapper>

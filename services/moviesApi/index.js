@@ -4,7 +4,7 @@ const API_KEY = 'api_key=b2a1db157d5c38da50264ca60afa6273'
 const API = 'https://api.themoviedb.org/3'
 
 // get movies:
-export const GET_MOVIES = `${API}/movie/popular?${API_KEY}&language=en-US`
+export const GET_MOVIES = `${API}/movie/now_playing?${API_KEY}&language=en-US`
 
 // get movie genres:
 export const GET_MOVIE_GENRES = `${API}/genre/movie/list?${API_KEY}&language=en-US`
