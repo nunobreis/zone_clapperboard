@@ -10,13 +10,13 @@ import {
 const Checkbox = ({
   text,
   name,
-  onChange
+  onCheckboxChange
 }) => <Container>
   { text || null }
   <StyledInput
     type="checkbox"
     name={name}
-    onChange={onChange}
+    onChange={onCheckboxChange}
   />
   <Checkmark></Checkmark>
 </Container>
@@ -27,7 +27,7 @@ Checkbox.propTypes = {
     PropTypes.string.isRequired,
     PropTypes.number.isRequired
   ]),
-  onChange: PropTypes.func.isRequired
+  onCheckboxChange: PropTypes.func.isRequired
 }
 
 export default Checkbox

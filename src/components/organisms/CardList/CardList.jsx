@@ -1,21 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Card from '../../atoms/Card/Card'
 import Heading from '../../atoms/Heading/Heading'
 import Paragraph from '../../atoms/Paragraph/Paragraph'
 import Image from '../../atoms/Image/Image'
 
-import { StyledLabel, MovieDetails } from './CardList.styles'
+import {
+  StyledLabel,
+  MovieDetails,
+  Wrapper,
+  StyledCard
+} from './CardList.styles'
 
 const CardList = ({ items, ...props }) => (
-  <div {...props}>
+  <Wrapper {...props}>
     {items ? (
       items.map((item, i) => (
-        <Card key={i}>
+        <StyledCard key={i}>
           <Heading level={2}>{item.title}</Heading>
           <MovieDetails>
-            <Image src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.title}/>
+            <Image src={`https://image.tmdb.org/t/p/w185${item.poster_path}`} alt={item.title}/>
             <div>
               <Heading level={6}>Release Date:</Heading>
               <StyledLabel>{item.release_date}</StyledLabel>
@@ -27,10 +31,10 @@ const CardList = ({ items, ...props }) => (
           </MovieDetails>
           <Heading level={6}>Description:</Heading>
           <Paragraph>{item.overview}</Paragraph>
-        </Card>
+        </StyledCard>
       ))
     ) : null}
-  </div>
+  </Wrapper>
 )
 
 CardList.propTypes = {

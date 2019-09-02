@@ -10,7 +10,8 @@ export const StyledInput = styled.input.attrs(props => ({
 }))`
   font-size: 2rem;
   padding: 1rem;
-  width: 83rem;
+  padding-right: 0;
+  height: 100%;
   color: ${darkColor};
   font-family: ${fontFamily};
   outline: none;
