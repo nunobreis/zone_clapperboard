@@ -68,15 +68,17 @@ MovieGrid.propTypes = {
   onRequestMoviesByGenre: PropTypes.func
 }
 
-const mapStateToProps = ({
-  getMovies,
-  genresFilters
-}) => ({
-  movies: getMovies.movies,
-  isPending: getMovies.isPending,
-  error: getMovies.error,
-  genresFilters
-})
+const mapStateToProps = (state) => {
+  const { movies, isPending, error } = state.getMovies
+  const { genresFilters } = state
+
+  return {
+    movies,
+    isPending,
+    error,
+    genresFilters
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   onRequestMovies: () => moviesActions.loadMovies(dispatch),

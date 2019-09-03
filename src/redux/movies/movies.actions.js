@@ -7,20 +7,16 @@ import {
 } from '../../../services/moviesApi/index'
 
 import {
-  LOADING_MOVIES,
+  LOADING_DATA,
+  LOAD_DATA_FAILED,
   LOAD_MOVIES_SUCCESS,
-  LOAD_MOVIES_FAILED,
-  LOADING_MOVIE_BY_GENRES,
   LOAD_MOVIE_BY_GENRES_SUCCESS,
-  LOAD_MOVIE_BY_GENRES_FAILED,
-  LOADING_MOVIE_BY_TITLE,
-  LOAD_MOVIE_BY_TITLE_SUCCESS,
-  LOAD_MOVIE_BY_TITLE_FAILED
+  LOAD_MOVIE_BY_TITLE_SUCCESS
 } from '../types/index'
 
 export const loadMovies = (dispatch) => {
   dispatch({
-    type: LOADING_MOVIES
+    type: LOADING_DATA
   })
   axios(GET_MOVIES)
     .then(({ data }) => dispatch({
@@ -28,14 +24,14 @@ export const loadMovies = (dispatch) => {
       payload: data
     }))
     .catch(({ message }) => dispatch({
-      type: LOAD_MOVIES_FAILED,
+      type: LOAD_DATA_FAILED,
       payload: message
     }))
 }
 
 export const loadMoviesByGenre = (dispatch, genres) => {
   dispatch({
-    type: LOADING_MOVIE_BY_GENRES
+    type: LOADING_DATA
   })
   axios(GET_MOVIES_BY_GENRE + genres)
     .then(({ data }) => dispatch({
@@ -43,14 +39,14 @@ export const loadMoviesByGenre = (dispatch, genres) => {
       payload: data
     }))
     .catch(({ message }) => dispatch({
-      type: LOAD_MOVIE_BY_GENRES_FAILED,
+      type: LOAD_DATA_FAILED,
       payload: message
     }))
 }
 
 export const loadMoviesByTitle = (dispatch, title) => {
   dispatch({
-    type: LOADING_MOVIE_BY_TITLE
+    type: LOADING_DATA
   })
   axios(GET_MOVIE_BY_TITLE + title)
     .then(({ data }) => dispatch({
@@ -58,7 +54,7 @@ export const loadMoviesByTitle = (dispatch, title) => {
       payload: data
     }))
     .catch(({ message }) => dispatch({
-      type: LOAD_MOVIE_BY_TITLE_FAILED,
+      type: LOAD_DATA_FAILED,
       payload: message
     }))
 }

@@ -4,15 +4,15 @@ import {
   GET_MOVIE_GENRES
 } from '../../../services/moviesApi/index'
 import {
-  LOADING_GENRES,
+  LOADING_DATA,
   LOAD_GENRES_SUCCESS,
-  LOAD_GENRES_FAILED,
+  LOAD_DATA_FAILED,
   SELECT_GENRE
 } from '../types/index'
 
 export const loadGenres = (dispatch) => {
   dispatch({
-    type: LOADING_GENRES
+    type: LOADING_DATA
   })
   axios(GET_MOVIE_GENRES)
     .then(({ data }) => dispatch({
@@ -20,7 +20,7 @@ export const loadGenres = (dispatch) => {
       payload: data
     }))
     .catch(({ message }) => dispatch({
-      type: LOAD_GENRES_FAILED,
+      type: LOAD_DATA_FAILED,
       payload: message
     }))
 }

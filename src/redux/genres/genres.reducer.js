@@ -1,23 +1,19 @@
 import {
-  LOADING_GENRES,
+  LOADING_DATA,
   LOAD_GENRES_SUCCESS,
-  LOAD_GENRES_FAILED
+  LOAD_DATA_FAILED
 } from '../types/index'
 
-const initialState = {
-  isPending: false,
-  genres: [],
-  error: ''
-}
+import { initialState } from './genres.selectors'
 
 const getGenres = (state = initialState, action = {}) => {
   switch (action.type) {
-    case LOADING_GENRES:
+    case LOADING_DATA:
       return {
         ...state,
         isPending: true
       }
-    case LOAD_GENRES_FAILED:
+    case LOAD_DATA_FAILED:
       return {
         ...state,
         error: action.payload,

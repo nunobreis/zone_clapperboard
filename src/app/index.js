@@ -10,6 +10,8 @@ import { GlobalStyles } from './app.styles'
 import configureStore from '../redux/store/index'
 import theme from '../components/theme/default'
 
+import RatingFilter from '../components/organisms/RatingFilter/RatingFilter'
+
 const store = configureStore()
 
 const App = () => (
