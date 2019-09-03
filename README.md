@@ -1,5 +1,7 @@
 # Zone Digital frontend challenge - Nuno Reis solution
 
+![Project Snapshot](images/ProjectSnapshot/project_snapshot.png)
+
 ## 1. Brief Summary
 The current project is a proposal for solving the frontend challenge presented by Zone Digital. Considering the given problem and purpose of the challenge I decided to follow an Atomic Design Structure (know more about Brad Frost's approach [here](http://atomicdesign.bradfrost.com/)).
 
