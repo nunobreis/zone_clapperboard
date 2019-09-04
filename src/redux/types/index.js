@@ -20,3 +20,13 @@ export const LOAD_MOVIE_BY_GENRES_SUCCESS = 'LOAD_MOVIE_BY_GENRES_SUCCESS'
 
 // get movies by genre:
 export const LOAD_MOVIE_BY_TITLE_SUCCESS = 'LOAD_MOVIE_BY_TITLE_SUCCESS'
+
+// rate movie
+export const RATE_MOVIE = 'RATE_MOVIE'
+export const RATE_MOVIE_PENDING = 'RATE_MOVIE_PENDING'
+export const RATE_MOVIE_FAILED = 'RATE_MOVIE_PENDING'
+
+// login to the movie data base
+export const LOGIN_TMDB = 'LOGIN_TMDB'
+export const LOGIN_PENDING = 'LOGIN_PENDING'
+export const LOGIN_FAILED = 'LOGIN_PENDING'

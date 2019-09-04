@@ -1,16 +1,25 @@
 // on a real world app this key would never be in this file / be deployed to a public repo
-const API_KEY = 'api_key=b2a1db157d5c38da50264ca60afa6273'
+export const API_KEY = 'api_key=b2a1db157d5c38da50264ca60afa6273'
 
-const API = 'https://api.themoviedb.org/3'
+const BASE_URL = 'https://api.themoviedb.org/3'
 
 // get movies:
-export const GET_MOVIES = `${API}/movie/now_playing?${API_KEY}&language=en-US`
+export const GET_MOVIES = `${BASE_URL}/movie/now_playing?${API_KEY}&language=en-US`
 
 // get movie genres:
-export const GET_MOVIE_GENRES = `${API}/genre/movie/list?${API_KEY}&language=en-US`
+export const GET_MOVIE_GENRES = `${BASE_URL}/genre/movie/list?${API_KEY}&language=en-US`
 
 // get movies by genre:
-export const GET_MOVIES_BY_GENRE = `${API}/discover/movie?${API_KEY}&with_genres=`
+export const GET_MOVIES_BY_GENRE = `${BASE_URL}/discover/movie?${API_KEY}&with_genres=`
 
 // get movie by title:
-export const GET_MOVIE_BY_TITLE = `${API}/search/movie?${API_KEY}&query=`
+export const GET_MOVIE_BY_TITLE = `${BASE_URL}/search/movie?${API_KEY}&query=`
+
+// login:
+export const LOGIN = `${BASE_URL}/authentication/token/new?${API_KEY}`
+
+// ask user for permission:
+export const ASK_USER_PERMISSION = 'https://www.themoviedb.org/authenticate'
+
+// rate movie:
+export const MOVIE_URL = `${BASE_URL}/movie`

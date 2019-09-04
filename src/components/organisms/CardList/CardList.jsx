@@ -5,6 +5,8 @@ import Heading from '../../atoms/Heading/Heading'
 import Paragraph from '../../atoms/Paragraph/Paragraph'
 import Image from '../../atoms/Image/Image'
 
+import RatingMovie from '../../../containers/RatingMovie.container'
+
 import {
   StyledLabel,
   MovieDetails,
@@ -27,6 +29,8 @@ const CardList = ({ items, ...props }) => (
               <StyledLabel>{item.vote_average}</StyledLabel>
               <Heading level={6}>Popularity:</Heading>
               <StyledLabel>{item.popularity}</StyledLabel>
+              <Heading level={6}>Want to rate this movie?</Heading>
+              <RatingMovie movieId={item.id} />
             </div>
           </MovieDetails>
           <Heading level={6}>Description:</Heading>

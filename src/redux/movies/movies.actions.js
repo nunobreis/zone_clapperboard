@@ -11,7 +11,8 @@ import {
   LOAD_DATA_FAILED,
   LOAD_MOVIES_SUCCESS,
   LOAD_MOVIE_BY_GENRES_SUCCESS,
-  LOAD_MOVIE_BY_TITLE_SUCCESS
+  LOAD_MOVIE_BY_TITLE_SUCCESS,
+  RATE_MOVIE
 } from '../types/index'
 
 export const loadMovies = (dispatch) => {

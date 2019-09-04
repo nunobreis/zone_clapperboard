@@ -10,11 +10,15 @@ import thunk from 'redux-thunk'
 import getMovies from '../movies/movies.reducer'
 import getGenres from '../genres/genres.reducer'
 import genresFilters from '../genres/genresFilters.reducer'
+import userLogin from '../login/login.reducer'
+import rateMovie from '../rateMovie/rateMovie.reducer'
 
 const rootReducer = combineReducers({
   getMovies,
   getGenres,
-  genresFilters
+  genresFilters,
+  userLogin,
+  rateMovie
 })
 
 export default function configureStore(initialState) {
