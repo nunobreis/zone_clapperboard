@@ -26,5 +26,3 @@ export const CREATE_NEW_SESSION = `${BASE_URL}/authentication/session/new?${API_
 
 // rate movie:
 export const MOVIE_URL = `${BASE_URL}/movie`
-
-// https://api.themoviedb.org/3/authentication/session/new?api_key=%3C%3Capi_key%3E%3E"
