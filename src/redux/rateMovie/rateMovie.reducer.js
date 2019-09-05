@@ -8,7 +8,9 @@ const initialState = {
   isPending: false,
   error: '',
   movieId: null,
-  ratingValue: null
+  ratingValue: null,
+  statusCode: null,
+  statusMessage: null
 }
 
 const rateMovie = (state = initialState, action = {}) => {
@@ -28,8 +30,9 @@ const rateMovie = (state = initialState, action = {}) => {
       return {
         ...state,
         isPending: false,
-        movieId: action.payload,
-        ratingValue: action.payload
+        movieId: action.movieId,
+        statusCode: action.payload.status_code,
+        statusMessage: action.payload.status_message
       }
     default:
       return state

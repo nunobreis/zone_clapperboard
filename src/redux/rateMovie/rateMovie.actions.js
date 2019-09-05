@@ -21,6 +21,7 @@ export const rateMovie = (dispatch, value, id, sessionId) => {
   })
     .then(({ data }) => dispatch({
       type: RATE_MOVIE,
+      movieId: id,
       payload: data
     }))
     .catch(({ message }) => dispatch({

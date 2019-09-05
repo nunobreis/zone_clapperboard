@@ -27,9 +27,11 @@ class MovieGrid extends React.Component {
     const {
       isPending,
       error,
-      onSearchChange
+      onSearchChange,
+      rateMovie
     } = this.props
     const { results } = this.props.movies
+
     if (isPending) {
       return <Spinner />
     }
@@ -41,7 +43,7 @@ class MovieGrid extends React.Component {
       return (
         <div>
           <SearchBar searchChange={onSearchChange} />
-          <CardList items={filterByPopularity} />
+          <CardList items={filterByPopularity} rateMovie={rateMovie} />
         </div>
       )
     }
@@ -65,18 +67,21 @@ MovieGrid.propTypes = {
     PropTypes.array
   ]),
   moviesByGenreError: PropTypes.string,
-  onRequestMoviesByGenre: PropTypes.func
+  onRequestMoviesByGenre: PropTypes.func,
+  rateMovie: PropTypes.object
 }
 
 const mapStateToProps = (state) => {
   const { movies, isPending, error } = state.getMovies
   const { genresFilters } = state
+  const { rateMovie } = state
 
   return {
     movies,
     isPending,
     error,
-    genresFilters
+    genresFilters,
+    rateMovie
   }
 }
 
