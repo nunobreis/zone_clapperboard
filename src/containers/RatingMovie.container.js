@@ -48,17 +48,23 @@ class RatingMovie extends React.Component {
   render() {
     if (window.location.search !== '') {
       return (
+        <div>
+          <Heading level={6}>Use the buttons bellow</Heading>
           <MovieRating
             increase={this.handleIncrease}
             decrease={this.handleDecrease}
             counter={this.state.counter}
             saveRating={this.handleSaveRating}
           />
+        </div>
       )
     }
 
     return (
-      <Heading level={6}>Please login first to rate movies</Heading>
+      <div>
+        <Heading level={6}>Want to rate this movie?</Heading>
+        <Heading level={6}>Please login first to rate movies</Heading>
+      </div>
     )
   }
 }

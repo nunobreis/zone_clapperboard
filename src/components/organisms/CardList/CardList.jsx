@@ -31,7 +31,6 @@ const CardList = ({ items, rateMovie, ...props }) => {
                 <StyledLabel>{item.vote_average}</StyledLabel>
                 <Heading level={6}>Popularity:</Heading>
                 <StyledLabel>{item.popularity}</StyledLabel>
-                <Heading level={6}>Want to rate this movie?</Heading>
                 {
                   statusMessage === 'Success.' && movieId === item.id
                     ? <Paragraph>Thank you for rating</Paragraph>
