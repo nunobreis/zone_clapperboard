@@ -41,13 +41,12 @@ class RatingMovie extends React.Component {
   handleSaveRating() {
     const value = this.state.counter
     const id = this.props.movieId
-    this.props.onRatingMovie(value, id)
+    const sessionId = this.props.userLogin.userSession.session_id
+    this.props.onRatingMovie(value, id, sessionId)
   }
 
   render() {
-    const { loggedIn } = this.props.userLogin
-
-    if (loggedIn) {
+    if (window.location.search !== '') {
       return (
           <MovieRating
             increase={this.handleIncrease}
@@ -76,7 +75,8 @@ const mapStateToProps = ({ userLogin }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onRatingMovie: (value, id) => rateMovieActions.rateMovie(dispatch, value, id)
+  onRatingMovie: (value, id, sessionId) => rateMovieActions
+    .rateMovie(dispatch, value, id, sessionId)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RatingMovie)

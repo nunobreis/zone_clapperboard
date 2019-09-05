@@ -1,14 +1,18 @@
 import {
   LOGIN_FAILED,
   LOGIN_PENDING,
-  LOGIN_TMDB
+  LOGIN_TMDB,
+  NEW_SESSION_PENDING,
+  NEW_SESSION_FAILED,
+  NEW_SESSION
 } from '../types/index'
 
 const initialState = {
   isPending: false,
   error: '',
   token: null,
-  loggedIn: false
+  loggedIn: false,
+  userSession: null
 }
 
 const userLogin = (state = initialState, action = {}) => {
@@ -30,6 +34,12 @@ const userLogin = (state = initialState, action = {}) => {
         isPending: false,
         token: action.payload,
         loggedIn: true
+      }
+    case NEW_SESSION:
+      return {
+        ...state,
+        loggedIn: true,
+        userSession: action.payload
       }
     default:
       return state

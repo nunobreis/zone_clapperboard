@@ -11,13 +11,12 @@ import {
   RATE_MOVIE_FAILED
 } from '../types/index'
 
-export const rateMovie = (dispatch, value, id) => {
-  const RATE_MOVIE_URL = `${MOVIE_URL}/${id}/rating?${API_KEY}`
+export const rateMovie = (dispatch, value, id, sessionId) => {
+  const RATE_MOVIE_URL = `${MOVIE_URL}/${id}/rating?${API_KEY}&session_id=${sessionId}`
   dispatch({
     type: RATE_MOVIE_PENDING
   })
   axios.post(RATE_MOVIE_URL, {
-    movie_id: id,
     value
   })
     .then(({ data }) => dispatch({

@@ -30,3 +30,8 @@ export const RATE_MOVIE_FAILED = 'RATE_MOVIE_PENDING'
 export const LOGIN_TMDB = 'LOGIN_TMDB'
 export const LOGIN_PENDING = 'LOGIN_PENDING'
 export const LOGIN_FAILED = 'LOGIN_PENDING'
+
+// create new session
+export const NEW_SESSION = 'NEW_SESSION'
+export const NEW_SESSION_PENDING = 'NEW_SESSION_PENDING'
+export const NEW_SESSION_FAILED = 'NEW_SESSION_PENDING'

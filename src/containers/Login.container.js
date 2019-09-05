@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Popout from 'react-popout'
 
 import Button from '../components/atoms/Button/Button'
 import Paragraph from '../components/atoms/Paragraph/Paragraph'
@@ -16,22 +15,32 @@ class Login extends React.Component {
     this.handleOnClick = this.handleOnClick.bind(this)
   }
 
+  componentDidMount() {
+    const approvedUrl = window.location.search
+    if (approvedUrl !== '' && approvedUrl.includes('&approved=true')) {
+      const removePrefix = approvedUrl.replace('?request_token=', '')
+      const removeSufix = removePrefix.replace('&approved=true', '')
+      this.props.createNewSession(removeSufix)
+    }
+  }
+
+  componentDidUpdate() {
+    const { loggedIn, token } = this.props.userLogin
+
+    if (loggedIn && token) {
+      window.location.href = `${ASK_USER_PERMISSION}/${token.request_token}?redirect_to=http://localhost:8080/`
+    }
+  }
+
   handleOnClick() {
     this.props.onLogIn()
   }
 
   render() {
-    const { loggedIn, token } = this.props.userLogin
-    if (loggedIn && token) {
+    if (window.location.search !== '') {
       return (
         <div>
           <Paragraph>Welcome</Paragraph>
-          <Popout
-            url={`${ASK_USER_PERMISSION}/${token.request_token}`}
-            title='Asking user for approval'
-            onClosing={this.popupClosed}>
-            <div>Popped out content!</div>
-          </Popout>
         </div>
       )
     }
@@ -46,7 +55,8 @@ class Login extends React.Component {
 
 Login.propTypes = {
   onLogIn: PropTypes.func.isRequired,
-  userLogin: PropTypes.object
+  userLogin: PropTypes.object,
+  createNewSession: PropTypes.func
 }
 
 const mapStateToProps = ({ userLogin }) => ({
@@ -54,7 +64,8 @@ const mapStateToProps = ({ userLogin }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onLogIn: () => loginActions.login(dispatch)
+  onLogIn: () => loginActions.login(dispatch),
+  createNewSession: requestToken => loginActions.newSession(dispatch, requestToken)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
