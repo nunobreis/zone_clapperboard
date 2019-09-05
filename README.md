@@ -70,6 +70,6 @@ As a retroespective on this development sprint I would like to make some conside
 
 With a bit more time there are issues that could have been tackled in a different fashion for scalability reasons. For instance:
 
-- To handle asynchronous calls to the mock API I've used Redux Thunk as a middleware. Maybe in the future as the app grows, other more powerful middlewares systems could be considered to handle complex asyncrhonous functionality like authentication. For this reason maybe a future re-factor would be to change Redux Thunk to Redux Sagas.
+- Provide some feedback for the user after rating a movie. Right now it is only possible to see that the movie has been rated by navigating to the 'Network' tab on the chrome developer tools.
 - Another consideration would be to integrate a testing system quite possibly using: Jest and enzyme. As of now Storybook makes a great job in proving that each component renders in isolation. Although the full functionality and logic lack testing to proof that the app works as expected and to capture potential bugs.
-- GraphQL with ApolloClient would be a consideration to put on the table as this would benefit the apps performance as the movie requests grow.
+- GraphQL with ApolloClient would be a consideration to put on the table as this would benefit the app performance as the movie info grows more complex.
